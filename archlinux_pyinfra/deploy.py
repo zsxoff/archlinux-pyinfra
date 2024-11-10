@@ -330,7 +330,7 @@ pacman.packages(
 )
 
 systemd.service(
-    name="Performance - Enable cpupower.timer",
+    name="Performance - Enable cpupower.service",
     service="cpupower.service",
     running=True,
     enabled=True,
@@ -343,7 +343,7 @@ pacman.packages(
 )
 
 systemd.service(
-    name="Performance - Enable thermald.timer",
+    name="Performance - Enable thermald.service",
     service="thermald.service",
     running=True,
     enabled=True,
@@ -356,7 +356,7 @@ pacman.packages(
 )
 
 systemd.service(
-    name="Performance - Enable power-profiles-daemon.timer",
+    name="Performance - Enable power-profiles-daemon.service",
     service="power-profiles-daemon.service",
     running=True,
     enabled=True,
