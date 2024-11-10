@@ -1,0 +1,13 @@
+[project]
+name = "archlinux-pyinfra"
+version = "0.1.0"
+description = "Arch Linux with pyinfra"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pyinfra==3.1.1"]
+
+[dependency-groups]
+dev = ["mypy[faster-cache]==1.13.0", "pyright==1.1.388", "ruff==0.7.2"]
+
+[tool.ruff]
+line-length = 120
