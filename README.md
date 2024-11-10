@@ -1,5 +1,7 @@
 # Arch Linux with pyinfra
 
+![Arch Linux with GNOME](./assets/archlinux.png)
+
 ## What's inside
 
 See [./archlinux_pyinfra/deploy.py](./archlinux_pyinfra/deploy.py) file.
