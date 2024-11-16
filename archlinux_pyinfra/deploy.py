@@ -350,14 +350,21 @@ systemd.service(
 )
 
 pacman.packages(
-    name="Performance - Install power-profiles-daemon",
-    packages=["power-profiles-daemon", "python-gobject"],
+    name="Performance - Install tuned-ppd",
+    packages=["tuned-ppd"],
     present=True,
 )
 
 systemd.service(
-    name="Performance - Enable power-profiles-daemon.service",
-    service="power-profiles-daemon.service",
+    name="Performance - Enable tuned.service",
+    service="tuned.service",
+    running=True,
+    enabled=True,
+)
+
+systemd.service(
+    name="Performance - Enable tuned-ppd.service",
+    service="tuned-ppd.service",
     running=True,
     enabled=True,
 )
