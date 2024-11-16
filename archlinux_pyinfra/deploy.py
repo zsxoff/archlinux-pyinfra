@@ -273,7 +273,7 @@ pacman.packages(
 
 pacman.packages(
     name="Tools - Install system tools",
-    packages=["file", "hwinfo", "upower", "usbmuxd", "usbutils"],
+    packages=["file", "hwinfo", "hwloc", "upower", "usbmuxd", "usbutils"],
     present=True,
 )
 
