@@ -330,6 +330,12 @@ pacman.packages(
 )
 
 pacman.packages(
+    name="Performance - Install wireless_tools",
+    packages=["wireless_tools"],
+    present=True,
+)
+
+pacman.packages(
     name="Performance - Install cpupower",
     packages=["cpupower"],
     present=True,
