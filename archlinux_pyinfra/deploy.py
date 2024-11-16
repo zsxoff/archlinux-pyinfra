@@ -324,6 +324,12 @@ pacman.packages(
 )
 
 pacman.packages(
+    name="Performance - Install systemtap",
+    packages=["systemtap"],
+    present=True,
+)
+
+pacman.packages(
     name="Performance - Install cpupower",
     packages=["cpupower"],
     present=True,
