@@ -221,6 +221,7 @@ pacman.packages(
     packages=[
         "adobe-source-code-pro-fonts",
         "cantarell-fonts",
+        "gnu-free-fonts",
         "noto-fonts-cjk",
         "noto-fonts-emoji",
         "noto-fonts-extra",
@@ -290,6 +291,7 @@ pacman.packages(
         "jq",
         "nano",
         "ripgrep",
+        "ripgrep-all",
         "rsync",
         "starship",
         "wget",
@@ -304,7 +306,7 @@ pacman.packages(
 
 pacman.packages(
     name="Tools - Install archive tools",
-    packages=["atool", "p7zip", "tar", "unrar", "unzip", "xz", "zip", "zstd"],
+    packages=["7zip", "atool", "tar", "unrar", "unzip", "xz", "zip", "zstd"],
     present=True,
 )
 
@@ -466,8 +468,10 @@ pacman.packages(
     packages=[
         "baobab",
         "evince",
+        "eyedropper",
         "file-roller",
         "gnome-backgrounds",
+        "gnome-browser-connector",
         "gnome-calendar",
         "gnome-clocks",
         "gnome-color-manager",
