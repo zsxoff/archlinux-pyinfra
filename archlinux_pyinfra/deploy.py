@@ -530,8 +530,40 @@ pacman.packages(
 )
 
 # ----------------------------------------------------------------------------------------------------------------------
+# Tuning
+
+server.shell(
+    name="Tuning - Disable power safe mode on Wi-Fi",
+    commands=[
+        'echo \'ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set power_save off"\' > /etc/udev/rules.d/81-wifi-powersave.rules',
+    ],
+    _sudo=True,
+)
+
+# ----------------------------------------------------------------------------------------------------------------------
 # sysctl
 
-server.sysctl(
-    name="sysctl - Enable tcp_window_scaling", key="net.ipv4.tcp_window_scaling", value=1, persist=True, _sudo=True
+server.sysctl(  #
+    name="sysctl - Set tcp_window_scaling", key="net.ipv4.tcp_window_scaling", value=1, persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set tcp_timestamps", key="net.ipv4.tcp_timestamps", value=1, persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set tcp_sack", key="net.ipv4.tcp_sack", value=1, persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set x", key="net.core.rmem_max", value=134217728, persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set x", key="net.core.wmem_max", value=134217728, persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set x", key="net.ipv4.tcp_rmem", value=[4096, 87380, 134217728], persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set x", key="net.ipv4.tcp_wmem", value=[4096, 65536, 134217728], persist=True, _sudo=True
+)
+server.sysctl(  #
+    name="sysctl - Set x", key="net.ipv4.tcp_wmem", value=[4096, 65536, 134217728], persist=True, _sudo=True
 )
