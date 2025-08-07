@@ -519,14 +519,15 @@ pacman.packages(
     packages=[
         "firefox",
         "foot",
+        "imv",
         "mpv",
         "wl-clipboard",
+        "zathura",
         "zed",
     ],
     present=True,
     _sudo=True,
 )
-
 
 # ----------------------------------------------------------------------------------------------------------------------
 # sysctl
