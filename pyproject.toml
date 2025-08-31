@@ -10,4 +10,4 @@ dependencies = ["pyinfra==3.4.1"]
 dev = ["mypy[faster-cache]==1.17.1", "pyright==1.1.404", "ruff==0.12.11"]
 
 [tool.ruff]
-line-length = 120
+line-length = 88

@@ -1,6 +1,6 @@
 from pyinfra.operations import pacman, server, systemd
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Locales
 
 server.shell(
@@ -13,7 +13,7 @@ server.shell(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Network
 
 pacman.packages(
@@ -41,7 +41,7 @@ server.shell(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Time
 
 server.shell(
@@ -79,7 +79,7 @@ systemd.service(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Filesystem
 
 pacman.packages(
@@ -105,7 +105,7 @@ systemd.service(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Firmware
 
 pacman.packages(
@@ -136,7 +136,7 @@ server.modprobe(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Audio
 
 pacman.packages(
@@ -152,7 +152,7 @@ pacman.packages(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Bluetooth
 
 pacman.packages(
@@ -173,7 +173,7 @@ systemd.service(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Polkit
 
 pacman.packages(
@@ -185,7 +185,7 @@ pacman.packages(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Python
 
 pacman.packages(
@@ -197,7 +197,7 @@ pacman.packages(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Fonts
 
 pacman.packages(
@@ -252,7 +252,7 @@ server.shell(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Tools
 
 pacman.packages(
@@ -356,7 +356,7 @@ pacman.packages(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Performance
 
 pacman.packages(
@@ -459,7 +459,7 @@ systemd.service(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Desktop
 
 pacman.packages(
@@ -540,7 +540,7 @@ pacman.packages(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # Tuning
 
 server.shell(
@@ -551,30 +551,62 @@ server.shell(
     _sudo=True,
 )
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # sysctl
 
-server.sysctl(  #
-    name="sysctl - Set tcp_window_scaling", key="net.ipv4.tcp_window_scaling", value=1, persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set tcp_window_scaling",
+    key="net.ipv4.tcp_window_scaling",
+    value=1,
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set tcp_timestamps", key="net.ipv4.tcp_timestamps", value=1, persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set tcp_timestamps",
+    key="net.ipv4.tcp_timestamps",
+    value=1,
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set tcp_sack", key="net.ipv4.tcp_sack", value=1, persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set tcp_sack",
+    key="net.ipv4.tcp_sack",
+    value=1,
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set x", key="net.core.rmem_max", value=134217728, persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set x",
+    key="net.core.rmem_max",
+    value=134217728,
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set x", key="net.core.wmem_max", value=134217728, persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set x",
+    key="net.core.wmem_max",
+    value=134217728,
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set x", key="net.ipv4.tcp_rmem", value=[4096, 87380, 134217728], persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set x",
+    key="net.ipv4.tcp_rmem",
+    value=[4096, 87380, 134217728],
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set x", key="net.ipv4.tcp_wmem", value=[4096, 65536, 134217728], persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set x",
+    key="net.ipv4.tcp_wmem",
+    value=[4096, 65536, 134217728],
+    persist=True,
+    _sudo=True,
 )
-server.sysctl(  #
-    name="sysctl - Set x", key="net.ipv4.tcp_wmem", value=[4096, 65536, 134217728], persist=True, _sudo=True
+server.sysctl(
+    name="sysctl - Set x",
+    key="net.ipv4.tcp_wmem",
+    value=[4096, 65536, 134217728],
+    persist=True,
+    _sudo=True,
 )
