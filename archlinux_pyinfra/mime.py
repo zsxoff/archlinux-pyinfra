@@ -1,6 +1,6 @@
 from pyinfra.operations import server
 
-# ----------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 # xdg-mime
 
 application_mimetype = [
@@ -17,5 +17,8 @@ application_mimetype = [
 
 server.shell(
     name="xdg-mime - Set application and mimetype",
-    commands=[f"xdg-mime default {application} {mimetype}" for application, mimetype in application_mimetype],
+    commands=[
+        f"xdg-mime default {application} {mimetype}"
+        for application, mimetype in application_mimetype
+    ],
 )
