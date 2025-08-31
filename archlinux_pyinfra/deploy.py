@@ -555,56 +555,56 @@ server.shell(
 # sysctl
 
 server.sysctl(
-    name="sysctl - Set tcp_window_scaling",
+    name="sysctl - Set net.ipv4.tcp_window_scaling",
     key="net.ipv4.tcp_window_scaling",
     value=1,
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set tcp_timestamps",
+    name="sysctl - Set net.ipv4.tcp_timestamps",
     key="net.ipv4.tcp_timestamps",
     value=1,
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set tcp_sack",
+    name="sysctl - Set net.ipv4.tcp_sack",
     key="net.ipv4.tcp_sack",
     value=1,
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set x",
+    name="sysctl - Set net.core.rmem_max",
     key="net.core.rmem_max",
     value=134217728,
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set x",
+    name="sysctl - Set net.core.wmem_max",
     key="net.core.wmem_max",
     value=134217728,
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set x",
+    name="sysctl - Set net.ipv4.tcp_rmem",
     key="net.ipv4.tcp_rmem",
     value=[4096, 87380, 134217728],
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set x",
+    name="sysctl - Set net.ipv4.tcp_wmem",
     key="net.ipv4.tcp_wmem",
     value=[4096, 65536, 134217728],
     persist=True,
     _sudo=True,
 )
 server.sysctl(
-    name="sysctl - Set x",
+    name="sysctl - Set net.ipv4.tcp_wmem",
     key="net.ipv4.tcp_wmem",
     value=[4096, 65536, 134217728],
     persist=True,
