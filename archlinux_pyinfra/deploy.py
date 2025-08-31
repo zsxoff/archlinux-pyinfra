@@ -499,6 +499,17 @@ pacman.packages(
 )
 
 pacman.packages(
+    name="Desktop - Install colord",
+    packages=[
+        "colord",
+        "colord-gtk-common",
+        "colord-gtk4",
+    ],
+    present=True,
+    _sudo=True,
+)
+
+pacman.packages(
     name="Desktop - Install Qt",
     packages=[
         "qt5-base",
