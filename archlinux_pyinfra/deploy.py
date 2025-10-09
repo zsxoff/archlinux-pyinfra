@@ -502,6 +502,7 @@ pacman.packages(
     name="Desktop - Install colord",
     packages=[
         "colord",
+        "colord-gtk",
         "colord-gtk-common",
         "colord-gtk4",
     ],
