@@ -1,7 +1,4 @@
-from pyinfra import config
 from pyinfra.operations import pacman
-
-config.SUDO = True
 
 pacman.packages(
     name="Desktop - Install Gnome",
@@ -51,12 +48,14 @@ pacman.packages(
         "xdg-user-dirs-gtk",
     ],
     present=True,
+    _sudo=True,
 )
 
 # pacman.packages(
 #     name="Desktop - Install GDM",
 #     packages=["gdm"],
 #     present=True,
+#     _sudo=True,
 # )
 
 # systemd.service(
@@ -64,9 +63,11 @@ pacman.packages(
 #     service="gdm.service",
 #     running=True,
 #     enabled=True,
+#     _sudo=True,
 # )
 
 # server.shell(
 #     name="Desktop - Enable graphical.target",
 #     commands=["systemctl set-default graphical.target"],
+#     _sudo=True,
 # )
