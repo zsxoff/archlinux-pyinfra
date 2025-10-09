@@ -160,6 +160,7 @@ pacman.packages(
     packages=[
         "blueman",
         "bluez",
+        "bluez-utils",
     ],
     present=True,
     _sudo=True,
