@@ -534,7 +534,6 @@ pacman.packages(
         "mpv",
         "wl-clipboard",
         "zathura",
-        "zed",
     ],
     present=True,
     _sudo=True,
