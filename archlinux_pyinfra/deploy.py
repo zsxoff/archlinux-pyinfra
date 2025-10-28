@@ -541,6 +541,26 @@ pacman.packages(
 )
 
 # --------------------------------------------------------------------------------------
+# Display manager
+
+pacman.packages(
+    name="Display manager - Install Ly",
+    packages=[
+        "ly",
+    ],
+    present=True,
+    _sudo=True,
+)
+
+systemd.service(
+    name="Display manager - Enable ly.service",
+    service="ly.service",
+    running=False,
+    enabled=True,
+    _sudo=True,
+)
+
+# --------------------------------------------------------------------------------------
 # Tuning
 
 server.shell(
