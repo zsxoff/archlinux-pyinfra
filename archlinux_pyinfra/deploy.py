@@ -491,9 +491,8 @@ pacman.packages(
     packages=[
         "gtk3",
         "gtk4",
-        "libappindicator-gtk2",
-        "libappindicator-gtk3",
-        "webkit2gtk",
+        "libappindicator",
+        "webkitgtk-6.0",
     ],
     present=True,
     _sudo=True,
