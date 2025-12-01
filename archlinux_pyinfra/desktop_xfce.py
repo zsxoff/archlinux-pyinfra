@@ -7,6 +7,8 @@ from pyinfra.operations import pacman, server
 # --------------------------------------------------------------------------------------
 
 TERMINAL = "alacritty"
+LAUNCHER_PACKAGE = "rofi"
+LAUNCHER_COMMAND = "-show run"
 
 pacman.packages(
     name="Desktop - Install Xfce",
@@ -14,6 +16,7 @@ pacman.packages(
         "xfce4",
         "xfce4-screensaver",
         "xfce4-screenshooter",
+        LAUNCHER_PACKAGE,
         TERMINAL,
     ],
     present=True,
@@ -37,6 +40,8 @@ server.shell(
     commands=[
         # Open Terminal
         f"xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Alt>Return' --create -v -t string -s ${TERMINAL}",
+        # Open Launcher
+        f"xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Alt>Space' --create -v -t string -s ${LAUNCHER_PACKAGE} ${LAUNCHER_COMMAND}",
         # Close window
         "xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Q' --create -v -t string -s close_window_key",
         # Change workspace
