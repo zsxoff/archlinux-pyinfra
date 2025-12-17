@@ -41,6 +41,13 @@ server.shell(
     _sudo=True,
 )
 
+systemd.service(
+    name="Network - Enable the systemd-resolved service",
+    service="systemd-resolved.service",
+    running=True,
+    enabled=True,
+)
+
 # --------------------------------------------------------------------------------------
 # Time
 
