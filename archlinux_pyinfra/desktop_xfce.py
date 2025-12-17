@@ -32,16 +32,15 @@ pacman.packages(
     _sudo=True,
 )
 
-
 server.shell(
     # Show keybinds: `xfconf-query -c xfce4-keyboard-shortcuts -l -v`
     #
     name="Keybinds - Add Xfce keybinds",
     commands=[
         # Open Terminal
-        f"xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Alt>Return' --create -v -t string -s ${TERMINAL}",
+        f"xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Alt>Return' --create -v -t string -s '${TERMINAL}'",
         # Open Launcher
-        f"xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Alt>Space' --create -v -t string -s ${LAUNCHER_PACKAGE} ${LAUNCHER_COMMAND}",
+        f"xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Alt>Space' --create -v -t string -s '${LAUNCHER_PACKAGE} ${LAUNCHER_COMMAND}'",
         # Close window
         "xfconf-query -c xfce4-keyboard-shortcuts -p '/xfwm4/custom/<Alt>Q' --create -v -t string -s close_window_key",
         # Change workspace
