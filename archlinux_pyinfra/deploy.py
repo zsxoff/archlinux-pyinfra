@@ -319,6 +319,7 @@ pacman.packages(
         "python-pygments",
         "ripgrep",
         "ripgrep-all",
+        "skim",
         "starship",
         "wget",
         "yazi",
