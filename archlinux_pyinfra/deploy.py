@@ -182,18 +182,6 @@ systemd.service(
 )
 
 # --------------------------------------------------------------------------------------
-# Polkit
-
-pacman.packages(
-    name="Polkit - Install polkit",
-    packages=[
-        "polkit",
-    ],
-    present=True,
-    _sudo=True,
-)
-
-# --------------------------------------------------------------------------------------
 # Python
 
 pacman.packages(
