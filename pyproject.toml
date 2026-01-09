@@ -4,10 +4,10 @@ version = "0.1.0"
 description = "Arch Linux with pyinfra"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["pyinfra==3.5.1"]
+dependencies = ["pyinfra==3.6.0"]
 
 [dependency-groups]
-dev = ["mypy[faster-cache]==1.19.1", "pyright==1.1.407", "ruff==0.14.10", "yamllint==1.37.1"]
+dev = ["mypy[faster-cache]==1.19.1", "pyright==1.1.408", "ruff==0.14.11", "yamllint==1.37.1"]
 
 [tool.mypy]
 strict = true
