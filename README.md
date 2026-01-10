@@ -2,7 +2,12 @@
 
 ## What's inside
 
-See [./archlinux_pyinfra/deploy.py](./archlinux_pyinfra/deploy.py) file.
+| File                                                                         | Description                                    |
+| :--------------------------------------------------------------------------- | :--------------------------------------------- |
+| [./archlinux_pyinfra/deploy.py](./archlinux_pyinfra/deploy.py)               | Setup Arch Linux system from zero installation |
+| [./archlinux_pyinfra/mime.py](./archlinux_pyinfra/mime.py)                   | Setup XDG MIME Applications                    |
+| [./archlinux_pyinfra/wayland/base.py](./archlinux_pyinfra/wayland/base.py)   | Setup Wayland environment                      |
+| [./archlinux_pyinfra/wayland/labwc.py](./archlinux_pyinfra/wayland/labwc.py) | Setup Labwc compositor                         |
 
 ## How to deploy this
 
