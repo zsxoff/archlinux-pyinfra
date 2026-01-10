@@ -1,9 +1,5 @@
 # Arch Linux with pyinfra
 
-![Arch Linux with GNOME](./assets/archlinux.png)
-
-_(wallpaper from package [archlinux-wallpaper](https://archlinux.org/packages/extra/any/archlinux-wallpaper/), license custom:CC0, custom:SPL)_
-
 ## What's inside
 
 See [./archlinux_pyinfra/deploy.py](./archlinux_pyinfra/deploy.py) file.
