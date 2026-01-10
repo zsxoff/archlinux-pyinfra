@@ -13,3 +13,15 @@ pacman.packages(
     present=True,
     _sudo=True,
 )
+
+# XDG Desktop Portal (https://wiki.archlinux.org/title/XDG_Desktop_Portal)
+
+pacman.packages(
+    name="xdg-desktop-portal - Install xdg-desktop-portal and backend",
+    packages=[
+        "xdg-desktop-portal",
+        "xdg-desktop-portal-wlr",
+    ],
+    present=True,
+    _sudo=True,
+)
