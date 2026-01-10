@@ -11,6 +11,9 @@
 
 ## How to deploy this
 
+> [!IMPORTANT]
+> If you install Wayland, don't forget to run `sudo usermod -aG seat $USER` after installation.
+
 ### On local machine
 
 ```bash
