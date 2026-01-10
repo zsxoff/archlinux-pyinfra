@@ -1,6 +1,5 @@
 from pyinfra.operations import server
 
-# --------------------------------------------------------------------------------------
 # xdg-mime
 
 application_mimetype = [
