@@ -70,7 +70,7 @@ pacman.packages(
     _sudo=True,
 )
 
-# Base software
+# Software
 
 pacman.packages(
     name="Wayland - Install needed software",
@@ -84,6 +84,16 @@ pacman.packages(
         "swayidle",
         "swaylock",
         "wlr-randr",
+    ],
+    present=True,
+    _sudo=True,
+)
+
+pacman.packages(
+    name="Wayland - Install additional software",
+    packages=[
+        "imv",
+        "playerctl",
     ],
     present=True,
     _sudo=True,
