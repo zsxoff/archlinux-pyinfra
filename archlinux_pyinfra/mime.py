@@ -2,22 +2,31 @@ from pyinfra.operations import server
 
 # xdg-mime
 
-application_mimetype = [
-    ("firefox.desktop", "text/html"),
-    ("imv.desktop", "image/jpeg"),
-    ("imv.desktop", "image/png"),
-    ("mpv.desktop", "audio/flac"),
-    ("mpv.desktop", "audio/mp3"),
-    ("mpv.desktop", "audio/mp4"),
-    ("mpv.desktop", "audio/wav"),
-    ("mpv.desktop", "video/mp4"),
-    ("org.pwmt.zathura.desktop", "application/pdf"),
-]
+application_mimetypes: dict[str, list[str]] = {
+    "firefox.desktop": [
+        "text/html",
+    ],
+    "mpv.desktop": [
+        "audio/flac",
+        "audio/mp3",
+        "audio/mp4",
+        "audio/wav",
+        "video/mp4",
+    ],
+    "imv.desktop": [
+        "image/jpeg",
+        "image/png",
+    ],
+    "org.pwmt.zathura.desktop": [
+        "application/pdf",
+    ],
+}
 
 server.shell(
     name="xdg-mime - Set application and mimetype",
     commands=[
         f"xdg-mime default {application} {mimetype}"
-        for application, mimetype in application_mimetype
+        for application, mimetypes in application_mimetypes.items()
+        for mimetype in mimetypes
     ],
 )
