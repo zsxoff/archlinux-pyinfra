@@ -1,5 +1,13 @@
 ---
-minimum_prek_version: "0.2.22"
+minimum_prek_version: "0.3.0"
+
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+  - post-checkout
+  - post-merge
+  - post-rewrite
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -7,7 +15,6 @@ repos:
       - id: check-added-large-files
       - id: check-ast
       - id: check-case-conflict
-      - id: check-docstring-first
       - id: check-executables-have-shebangs
       - id: check-illegal-windows-names
       - id: check-json
@@ -21,7 +28,60 @@ repos:
       - id: trailing-whitespace
       - id: name-tests-test
         args:
-          - "--pytest-test-first"
+          - --pytest-test-first
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.14
+    hooks:
+      - id: ruff-check
+        args:
+          - --exit-non-zero-on-fix
+      - id: ruff-format
+        args:
+          - --exit-non-zero-on-format
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.9.3
+    hooks:
+      - id: bandit
+        args:
+          - -c
+          - pyproject.toml
+        additional_dependencies:
+          - bandit[toml]
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-pydantic
+          - flake8-pyproject
+          - wemake-python-styleguide
+
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.408
+    hooks:
+      - id: pyright
+        additional_dependencies:
+          - nodejs
+
+  - repo: https://github.com/tombi-toml/tombi-pre-commit
+    rev: v0.7.25
+    hooks:
+      - id: tombi-format
+      - id: tombi-lint
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.9.26
+    hooks:
+      - id: uv-lock
+      - id: uv-sync
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
 
   - repo: local
     hooks:
@@ -31,30 +91,8 @@ repos:
         language: python
         types_or: [python, pyi]
         require_serial: true
-
-      - id: pyright
-        name: pyright
-        entry: pyright
-        language: python
-        types_or: [python, pyi]
-        require_serial: true
-
-      - id: ruff-check
-        name: ruff check
-        entry: ruff check --force-exclude
-        language: python
-        types_or: [python, pyi, jupyter]
-        require_serial: true
-
-      - id: ruff-format
-        name: ruff format
-        entry: ruff format --force-exclude
-        language: python
-        types_or: [python, pyi, jupyter]
-        require_serial: true
-
-      - id: yamllint
-        name: yamllint
-        entry: yamllint
-        language: python
-        types: [file, yaml]
+        args: [--config-file, pyproject.toml]
+        stages:
+          - pre-commit
+          - pre-push
+          - manual
