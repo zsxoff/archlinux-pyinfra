@@ -10,7 +10,7 @@ authors = [{ name = "zsxoff" }]
 dependencies = ["pyinfra==3.6.0"]
 
 [dependency-groups]
-dev = ["mypy[faster-cache]==1.19.1", "pyright==1.1.408", "ruff==0.14.13"]
+dev = ["mypy[faster-cache]==1.19.1", "pyright==1.1.408", "ruff==0.14.14"]
 
 [tool.flake8]
 max-line-length = 88
