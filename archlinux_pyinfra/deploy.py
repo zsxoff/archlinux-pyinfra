@@ -531,12 +531,16 @@ pacman.packages(
 server.shell(
     name="Tuning - Disable power safe mode on Wi-Fi",
     commands=[
-        'echo \'ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set power_save off"\' > /etc/udev/rules.d/81-wifi-powersave.rules',
+        'echo \'ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set power_save off"\' > /etc/udev/rules.d/81-wifi-powersave.rules',  # noqa: E501
     ],
     _sudo=True,
 )
 
+
 # sysctl
+
+UDP_SOCKET_R_BUFFER_SIZE = 134217728
+UDP_SOCKET_W_BUFFER_SIZE = 134217728
 
 server.sysctl(
     name="sysctl - Set net.ipv4.tcp_window_scaling",
@@ -565,7 +569,7 @@ server.sysctl(
 server.sysctl(
     name="sysctl - Set net.core.rmem_max",
     key="net.core.rmem_max",
-    value=134217728,
+    value=UDP_SOCKET_R_BUFFER_SIZE,
     persist=True,
     _sudo=True,
 )
@@ -573,7 +577,7 @@ server.sysctl(
 server.sysctl(
     name="sysctl - Set net.core.wmem_max",
     key="net.core.wmem_max",
-    value=134217728,
+    value=UDP_SOCKET_W_BUFFER_SIZE,
     persist=True,
     _sudo=True,
 )
