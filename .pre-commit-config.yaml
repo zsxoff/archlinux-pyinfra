@@ -94,7 +94,7 @@ repos:
         additional_dependencies: [*pypi_index, nodejs]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.9.26
+    rev: 0.9.27
     hooks:
       - id: uv-lock
         additional_dependencies: [*pypi_index]
