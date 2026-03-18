@@ -12,11 +12,14 @@ insert_final_newline = true
 max_line_length = 120
 trim_trailing_whitespace = true
 
-[*.py]
-max_line_length = 120
-
-[{*.yml,*.yaml,.yamllint}]
-indent_size = 2
-
 [*.json]
 indent_size = 2
+
+[*.toml]
+indent_size = 2
+
+[{*.yaml,*.yml,.yamllint}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab
