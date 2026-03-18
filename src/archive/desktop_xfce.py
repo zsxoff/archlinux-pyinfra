@@ -1,5 +1,6 @@
 from pyinfra.operations import pacman
 
+
 TERMINAL = "alacritty"
 LAUNCHER_PACKAGE = "rofi"
 LAUNCHER_COMMAND = "-show run"

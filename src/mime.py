@@ -1,5 +1,6 @@
 from pyinfra.operations import server
 
+
 # xdg-mime
 
 application_mimetypes: dict[str, list[str]] = {

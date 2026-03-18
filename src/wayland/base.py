@@ -1,5 +1,6 @@
 from pyinfra.operations import pacman, systemd
 
+
 # Display manager (https://github.com/fairyglade/ly)
 
 pacman.packages(

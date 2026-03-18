@@ -1,5 +1,6 @@
 from pyinfra.operations import pacman
 
+
 # Labwc
 
 pacman.packages(

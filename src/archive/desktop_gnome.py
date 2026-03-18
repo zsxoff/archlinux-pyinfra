@@ -1,5 +1,6 @@
 from pyinfra.operations import pacman
 
+
 pacman.packages(
     name="Desktop - Install Gnome",
     packages=[
