@@ -94,20 +94,18 @@ repos:
         additional_dependencies: [*pypi_index, nodejs]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.10.10
+    rev: 0.10.11
     hooks:
       - id: uv-lock
         additional_dependencies: [*pypi_index]
-
       - id: uv-sync
         additional_dependencies: [*pypi_index]
 
   - repo: https://github.com/tombi-toml/tombi-pre-commit
-    rev: v0.9.5
+    rev: v0.9.7
     hooks:
       - id: tombi-format
         additional_dependencies: [*pypi_index]
-
       - id: tombi-lint
         additional_dependencies: [*pypi_index]
 
