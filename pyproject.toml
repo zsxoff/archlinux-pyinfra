@@ -77,8 +77,9 @@ venvPath = "."
 pythonVersion = "3.12"
 pythonPlatform = "Linux"
 exclude = [
+  ".*",                   # common env
+  ".venv",                # common env
   "**/__pycache__",       # common env
-  "**/.*",                # common env
   "**/node_modules",      # common env
 ]
 
