@@ -141,4 +141,5 @@ max-line-length = 120
 convention = "google"
 
 [tool.tombi]
+files.exclude = ["uv.lock"]
 format.rules.trailing-comment-alignment = true
