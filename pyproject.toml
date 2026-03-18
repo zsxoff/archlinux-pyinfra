@@ -12,19 +12,133 @@ dependencies = ["pyinfra==3.7.0"]
 [dependency-groups]
 dev = ["mypy[faster-cache]==1.19.1", "pyright==1.1.408", "ruff==0.15.6"]
 
+[tool.bandit]
+exclude_dirs = [
+  ".git",           # common env
+  ".idea",          # common env
+  ".venv",          # common env
+  ".vscode",        # common env
+  ".zed",           # common env
+  ".mypy_cache",    # tools
+  ".pytest_cache",  # tools
+  ".ruff_cache",    # tools
+  "dist",           # dist
+  "docs",           # docs
+  "__pycache__",    # cache
+]
+
+[tool.bandit.assert_used]
+skips = ["*/*_test.py", "*/test_*.py", "./tests/conftest.py"]
+
 [tool.flake8]
-max-line-length = 88
+max-line-length = 120
+exclude = [
+  ".git",              # common env
+  ".idea",             # common env
+  ".venv",             # common env
+  ".vscode",           # common env
+  ".zed",              # common env
+  ".mypy_cache",       # tools
+  ".pytest_cache",     # tools
+  ".ruff_cache",       # tools
+  "dist",              # dist
+  "docs",              # docs
+  "__pycache__",       # cache
+]
 
 [tool.mypy]
 strict = true
+strict_bytes = true
+strict_equality = true
+python_version = "3.12"
+platform = "linux"
+local_partial_types = true
+warn_unreachable = true
+exclude = [
+  "^.git/",                 # common env
+  "^.idea/",                # common env
+  "^.venv/",                # common env
+  "^.vscode/",              # common env
+  "^.zed/",                 # common env
+  "^.mypy_cache/",          # tools
+  "^.pytest_cache/",        # tools
+  "^.ruff_cache/",          # tools
+  "^dist/",                 # dist
+  "^docs/",                 # docs
+]
+disable_error_code = [
+  "no-untyped-call",        # In example for https://github.com/grpc/grpc/pull/37877
+  "no-untyped-def",         # In example for https://github.com/grpc/grpc/pull/37877
+]
 
 [tool.pyright]
 venv = ".venv"
 venvPath = "."
+pythonVersion = "3.12"
+pythonPlatform = "Linux"
+exclude = [
+  "**/__pycache__",       # common env
+  "**/.*",                # common env
+  "**/node_modules",      # common env
+]
 
 [tool.ruff]
 fix = true
 line-length = 88
+preview = true
+target-version = "py313"
+extend-exclude = [
+  ".git",                 # common env
+  ".idea",                # common env
+  ".venv",                # common env
+  ".vscode",              # common env
+  ".zed",                 # common env
+  ".mypy_cache",          # tools
+  ".pytest_cache",        # tools
+  ".ruff_cache",          # tools
+  "dist",                 # dist
+  "docs",                 # docs
+]
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = true
 
 [tool.ruff.lint]
-extend-select = ["I"]
+select = [
+  "F",             # Pyflakes
+  "E",             # pycodestyle - Error
+  "W",             # pycodestyle - Warning
+]
+ignore = [
+  "ANN002",        # Missing type annotation for *{name}
+  "ANN003",        # Missing type annotation for **{name}
+]
+extend-select = [
+  "I",             # isort
+  "UP",            # pyupgrade
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = [
+  "S101",         # Checks for uses of the assert keyword
+]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+lines-between-types = 0
+known-first-party = ["src"]
+known-third-party = []
+
+[tool.ruff.lint.mccabe]
+max-complexity = 6
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 120
+max-line-length = 120
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.tombi]
+format.rules.trailing-comment-alignment = true
