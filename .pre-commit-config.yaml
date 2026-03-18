@@ -65,7 +65,6 @@ repos:
       - id: ruff-check
         args: [--exit-non-zero-on-fix]
         additional_dependencies: [*pypi_index]
-
       - id: ruff-format
         args: [--exit-non-zero-on-format]
         additional_dependencies: [*pypi_index]
