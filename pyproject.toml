@@ -1,5 +1,5 @@
 [project]
-name = "archlinux-pyinfra"
+name = "pyinfra-archlinux"
 version = "0.1.0"
 description = "Arch Linux with pyinfra"
 readme = "README.md"

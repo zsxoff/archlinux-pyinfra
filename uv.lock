@@ -12,31 +12,6 @@ wheels = [
 ]
 
 [[package]]
-name = "archlinux-pyinfra"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "pyinfra" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "mypy", extra = ["faster-cache"] },
-    { name = "pyright" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "pyinfra", specifier = "==3.7.0" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mypy", extras = ["faster-cache"], specifier = "==1.19.1" },
-    { name = "pyright", specifier = "==1.1.408" },
-    { name = "ruff", specifier = "==0.15.6" },
-]
-
-[[package]]
 name = "bcrypt"
 version = "5.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -712,6 +687,31 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/fa/2b/49eeb9000a66157f7cda8b5b4871e1e496f1fb42fd1b94290ee5efb9a3cb/pyinfra-3.7.tar.gz", hash = "sha256:2f8eeee84d4d90c5ee57300ae6673b58237117605cca6b0cffde29f0b2517d4b", size = 599054, upload-time = "2026-03-12T10:55:35.972Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a4/6d/246168fe781009d32199fb7553a9a462e298d17f6e49accedf3b16c65346/pyinfra-3.7-py3-none-any.whl", hash = "sha256:9208de3f4479ad80509db51da874445017987818dba8a36c808f56ce1451b34c", size = 267074, upload-time = "2026-03-12T10:55:34.518Z" },
+]
+
+[[package]]
+name = "pyinfra-archlinux"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "pyinfra" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "mypy", extra = ["faster-cache"] },
+    { name = "pyright" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pyinfra", specifier = "==3.7.0" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", extras = ["faster-cache"], specifier = "==1.19.1" },
+    { name = "pyright", specifier = "==1.1.408" },
+    { name = "ruff", specifier = "==0.15.6" },
 ]
 
 [[package]]
