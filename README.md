@@ -38,4 +38,4 @@ pyinfra --ssh-user admin --ssh-key ~/.ssh/id_ed25519 inventory.py ./src/deploy.p
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-This project is licensed under the terms of the [MIT](https://opensource.org/licenses/MIT) license (see [LICENSE](https://github.com/zsxoff/archlinux-pyinfra/blob/master/LICENSE) file).
+This project is licensed under the terms of the [MIT](https://opensource.org/licenses/MIT) license (see [LICENSE](https://github.com/zsxoff/archlinux-pyinfra/blob/main/LICENSE) file).
