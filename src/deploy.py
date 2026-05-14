@@ -413,6 +413,21 @@ systemd.service(
     _sudo=True,
 )
 
+pacman.packages(
+    name="Performance - Install earlyoom",
+    packages=["earlyoom"],
+    present=True,
+    _sudo=True,
+)
+
+systemd.service(
+    name="Performance - Enable earlyoom.service",
+    service="earlyoom.service",
+    running=True,
+    enabled=True,
+    _sudo=True,
+)
+
 # Desktop
 
 pacman.packages(
