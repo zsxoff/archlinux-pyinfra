@@ -428,6 +428,16 @@ systemd.service(
     _sudo=True,
 )
 
+# paccache
+
+systemd.service(
+    name="paccache - Enable paccache.timer",
+    service="paccache.timer",
+    running=True,
+    enabled=True,
+    _sudo=True,
+)
+
 # Desktop
 
 pacman.packages(
@@ -567,14 +577,6 @@ server.sysctl(
     name="sysctl - Set net.ipv4.tcp_rmem",
     key="net.ipv4.tcp_rmem",
     value=[4096, 87380, 134217728],
-    persist=True,
-    _sudo=True,
-)
-
-server.sysctl(
-    name="sysctl - Set net.ipv4.tcp_wmem",
-    key="net.ipv4.tcp_wmem",
-    value=[4096, 65536, 134217728],
     persist=True,
     _sudo=True,
 )
