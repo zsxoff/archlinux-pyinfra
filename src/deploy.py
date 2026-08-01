@@ -538,7 +538,7 @@ SYSCTL_UDP_SOCKET_W_BUFFER_SIZE = 134217728
 
 class SysctlSetting(NamedTuple):
     key: str
-    value: int | list[str | int]  # noqa[WPS481]
+    sysctl_value: int | list[str | int]
 
 
 sysctl_settings: list[SysctlSetting] = [
@@ -555,7 +555,7 @@ for sysctl_setting in sysctl_settings:  # noqa[WPS481]
     server.sysctl(
         name=f"sysctl - Set {sysctl_setting.key}",
         key=sysctl_setting.key,
-        value=sysctl_setting.value,
+        value=sysctl_setting.sysctl_value,
         persist=True,
         _sudo=True,
     )
