@@ -60,7 +60,7 @@ repos:
         additional_dependencies: [*pypi_index]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.12
+    rev: v0.16.1
     hooks:
       - id: ruff-check
         args: [--exit-non-zero-on-fix]
@@ -87,13 +87,13 @@ repos:
           - wemake-python-styleguide
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.409
+    rev: v1.1.411
     hooks:
       - id: pyright
         additional_dependencies: [*pypi_index, nodejs]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.14
+    rev: 0.12.1
     hooks:
       - id: uv-lock
         additional_dependencies: [*pypi_index]
@@ -101,7 +101,7 @@ repos:
         additional_dependencies: [*pypi_index]
 
   - repo: https://github.com/tombi-toml/tombi-pre-commit
-    rev: v0.11.3
+    rev: v1.2.5
     hooks:
       - id: tombi-format
         additional_dependencies: [*pypi_index]
