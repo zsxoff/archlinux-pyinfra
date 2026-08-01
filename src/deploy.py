@@ -1,3 +1,5 @@
+from typing import NamedTuple
+
 from pyinfra.operations import pacman, server, systemd
 
 
@@ -530,61 +532,30 @@ server.shell(
 
 # sysctl
 
-UDP_SOCKET_R_BUFFER_SIZE = 134217728
-UDP_SOCKET_W_BUFFER_SIZE = 134217728
+SYSCTL_UDP_SOCKET_R_BUFFER_SIZE = 134217728
+SYSCTL_UDP_SOCKET_W_BUFFER_SIZE = 134217728
 
-server.sysctl(
-    name="sysctl - Set net.ipv4.tcp_window_scaling",
-    key="net.ipv4.tcp_window_scaling",
-    value=1,
-    persist=True,
-    _sudo=True,
-)
 
-server.sysctl(
-    name="sysctl - Set net.ipv4.tcp_timestamps",
-    key="net.ipv4.tcp_timestamps",
-    value=1,
-    persist=True,
-    _sudo=True,
-)
+class SysctlSetting(NamedTuple):
+    key: str
+    value: int | list[str | int]  # noqa[WPS481]
 
-server.sysctl(
-    name="sysctl - Set net.ipv4.tcp_sack",
-    key="net.ipv4.tcp_sack",
-    value=1,
-    persist=True,
-    _sudo=True,
-)
 
-server.sysctl(
-    name="sysctl - Set net.core.rmem_max",
-    key="net.core.rmem_max",
-    value=UDP_SOCKET_R_BUFFER_SIZE,
-    persist=True,
-    _sudo=True,
-)
+sysctl_settings: list[SysctlSetting] = [
+    SysctlSetting("net.core.rmem_max", SYSCTL_UDP_SOCKET_R_BUFFER_SIZE),
+    SysctlSetting("net.core.wmem_max", SYSCTL_UDP_SOCKET_W_BUFFER_SIZE),
+    SysctlSetting("net.ipv4.tcp_sack", 1),
+    SysctlSetting("net.ipv4.tcp_timestamps", 1),
+    SysctlSetting("net.ipv4.tcp_window_scaling", 1),
+    SysctlSetting("net.ipv4.tcp_rmem", [4096, 87380, 134217728]),
+    SysctlSetting("net.ipv4.tcp_wmem", [4096, 65536, 134217728]),
+]
 
-server.sysctl(
-    name="sysctl - Set net.core.wmem_max",
-    key="net.core.wmem_max",
-    value=UDP_SOCKET_W_BUFFER_SIZE,
-    persist=True,
-    _sudo=True,
-)
-
-server.sysctl(
-    name="sysctl - Set net.ipv4.tcp_rmem",
-    key="net.ipv4.tcp_rmem",
-    value=[4096, 87380, 134217728],
-    persist=True,
-    _sudo=True,
-)
-
-server.sysctl(
-    name="sysctl - Set net.ipv4.tcp_wmem",
-    key="net.ipv4.tcp_wmem",
-    value=[4096, 65536, 134217728],
-    persist=True,
-    _sudo=True,
-)
+for sysctl_setting in sysctl_settings:  # noqa[WPS481]
+    server.sysctl(
+        name=f"sysctl - Set {sysctl_setting.key}",
+        key=sysctl_setting.key,
+        value=sysctl_setting.value,
+        persist=True,
+        _sudo=True,
+    )
